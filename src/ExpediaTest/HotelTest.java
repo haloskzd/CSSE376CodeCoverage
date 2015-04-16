@@ -70,8 +70,7 @@ public class HotelTest
         target.Database = mockDB;
 
         String result;
-
-
+        
         result = target.getRoomOccupant(25);
         Assert.assertEquals("Empty room", result);
 
