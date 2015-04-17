@@ -110,6 +110,19 @@ public class UserTest
 		ServiceLocator.Instance().AddDiscount(target);
 		this.target.book(new Booking[]{new Flight(StartDate, EndDate, 100), new Hotel(5), new Car(3)});
 		assertEquals(1024.65,this.target.Price(), 0.01);
+		target = new Discount(-0.01, 1);
+		ServiceLocator.Instance().ResetInstance();
+		ServiceLocator.Instance().AddDiscount(target);
+		this.target = new User("Bob Dole");
+		this.target.book(new Booking[]{new Flight(StartDate, EndDate, 100), new Hotel(5), new Car(3)});
+		assertEquals(1035.0, this.target.Price(), 0.01);
+		target = new Discount(0.01, 100000);
+		ServiceLocator.Instance().ResetInstance();
+		ServiceLocator.Instance().AddDiscount(target);
+		this.target = new User("Bob Dole");
+		this.target.book(new Booking[]{new Flight(StartDate, EndDate, 100), new Hotel(5), new Car(3)});
+		assertEquals(1035.0, this.target.Price(), 0.01);
+		
 	}
 	
 	@After

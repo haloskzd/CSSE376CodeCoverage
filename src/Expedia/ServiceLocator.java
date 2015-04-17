@@ -63,4 +63,7 @@ public class ServiceLocator {
 	{
 		cars.remove(aCar);	
 	}
+	public void ResetInstance() {
+		ServiceLocator._instance = new ServiceLocator();
+	}
 }
